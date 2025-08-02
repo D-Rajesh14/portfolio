@@ -1,241 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rajesh | Portfolio</title>
-
-  <!-- Bootstrap & Icons -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D Rajesh | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
   <style>
-    body {
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    .navbar {
-      background-color: #1c1c1e;
-    }
-
-    .navbar-brand, .nav-link {
-      color: white !important;
-    }
-
-    .nav-link:hover {
-      color: #00d4ff !important;
-    }
-
-    .hero-section {
-      height: 100vh;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero-section h1 {
-      font-size: 3rem;
-      font-weight: 700;
-    }
-
-    .hero-section p {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-    }
-
-    .btn-custom {
-      padding: 10px 20px;
-      font-weight: 500;
-      border-radius: 30px;
-      transition: 0.3s;
-    }
-
-    .btn-custom:hover {
-      background-color: #00d4ff;
-      color: #000;
-    }
-
-    section {
-      padding: 60px 20px;
-    }
-
-    .project-card {
-      border: none;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-    }
-
-    .project-card:hover {
-      transform: scale(1.05);
-    }
-
-    .project-card img {
-      height: 200px;
-      object-fit: cover;
-      width: 100%;
-    }
-
-    .skill-badge {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 25px;
-      font-size: 14px;
-    }
-
-    .filter-btn {
-      margin: 5px;
-      border-radius: 25px;
-    }
+    body { font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+    .skill-badge { margin: 8px; padding: 8px 16px; border-radius: 20px; background: #f1f1f1; display: inline-block; }
+    .project-card img { height: 200px; object-fit: cover; }
+    .filter-btn { margin: 5px; border-radius: 25px; }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Rajesh</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero-section" id="hero">
-    <h1>Hi, I'm Rajesh</h1>
-    <p>A passionate web developer turning ideas into real websites.</p>
-    <a href="./Resume/D RAJESH_Resume.pdf" class="btn btn-outline-light btn-custom" download>Download Resume</a>
-  </section>
-
-  <!-- About -->
-  <section class="about-section" id="about">
-    <div class="container text-center">
-      <h2>About Me</h2>
-      <p>I am an aspiring software developer with a strong foundation in Core Java, SQL, and front-end technologies like HTML, CSS, and JavaScript. I specialize in building responsive web interfaces and managing real-world projects. I have built and run a live e-commerce website (MyEybo.in), completed a full-stack development internship at JSpiders, and developed multiple UI-based projects. I am passionate about building clean, user-focused web applications and constantly learning new technologies.</p>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section class="skills-section" id="skills">
-    <div class="container text-center">
-      <h2>Skills</h2>
-      <div>
-        <span class="skill-badge">HTML</span>
-        <span class="skill-badge">CSS</span>
-        <span class="skill-badge">Bootstrap</span>
-        <span class="skill-badge">JavaScript</span>
-        <span class="skill-badge">Git & GitHub</span>
-        <span class="skill-badge">Responsive Design</span>
-        <span class="skill-badge">Core Java</span>
-        <span class="skill-badge">SQL</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Project Filters -->
-  <div class="text-center">
-    <button class="btn btn-outline-secondary filter-btn" onclick="filterProjects('all')">All</button>
-    <button class="btn btn-outline-secondary filter-btn" onclick="filterProjects('portfolio')">Portfolio</button>
-    <button class="btn btn-outline-secondary filter-btn" onclick="filterProjects('clone')">Clones</button>
-    <button class="btn btn-outline-secondary filter-btn" onclick="filterProjects('ecommerce')">E-commerce</button>
-  </div>
-
-  <!-- Projects -->
-  <section class="projects-section" id="projects">
-    <div class="container">
-      <h2 class="text-center mb-5">My Projects</h2>
-      <div class="row g-4" id="projectCards">
-        <!-- Projects dynamically filtered here -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <h2 class="text-center mb-4">Get in Touch</h2>
-      <div class="contact-form">
-        <form>
-          <div class="mb-3">
-            <label for="name" class="form-label">Your Name</label>
-            <input type="text" id="name" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Your Email</label>
-            <input type="email" id="email" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
-            <textarea id="message" class="form-control" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
- <footer class="footer-section text-center">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
   <div class="container">
-    <p class="mb-2">&copy; 2025 Rajesh Portfolio. All rights reserved.</p>
-    <div class="d-flex justify-content-center align-items-center gap-3">
-      <a href="https://github.com/D-Rajesh14" class="social-link" target="_blank"><i class="bi bi-github fs-4"></i></a>
-      <a href="https://www.linkedin.com/in/d-rajesh-1664822b0" class="social-link" target="_blank"><i class="bi bi-linkedin fs-4"></i></a>
+    <a class="navbar-brand fw-bold" href="#">Rajesh</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center" id="hero" style="background: linear-gradient(to right, #ffffff, #f8f9fa); min-height: 100vh; padding: 100px 20px 80px 20px;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-5 text-center mb-4 mb-md-0">
+        <img src="img/D Rajesh.png" alt="Rajesh" class="img-fluid rounded-circle shadow border" style="max-width: 280px;">
+      </div>
+      <div class="col-md-7 text-md-start text-center">
+        <p class="text-muted mb-1">Hi there, I'm</p>
+        <h1 class="fw-bold display-4 mb-2">D Rajesh</h1>
+        <h4 class="text-secondary mb-3">Frontend Developer</h4>
+        <p class="text-muted mb-4">Passionate about crafting clean, modern, responsive web applications with great user experiences.</p>
+        <div class="mb-3">
+          <a href="./Resume/D RAJESH_Resume.pdf" class="btn btn-outline-dark me-2 mb-2" download>Download CV</a>
+          <a href="#contact" class="btn btn-dark mb-2">Contact Me</a>
+        </div>
+        <div class="mb-2">
+          <a href="https://www.linkedin.com/in/d-rajesh-1664822b0" target="_blank" class="me-3 text-dark"><i class="bi bi-linkedin fs-4"></i></a>
+          <a href="https://github.com/D-Rajesh14" target="_blank" class="me-3 text-dark"><i class="bi bi-github fs-4"></i></a>
+          <a href="mailto:drajesh14082002@gmail.com" class="me-3 text-dark"><i class="bi bi-envelope fs-4"></i></a>
+          <a href="tel:+919348914866" class="text-dark"><i class="bi bi-telephone fs-4"></i></a>
+        </div>
+        <small class="text-muted">📍 Berhampur, Odisha | 📞 +91 9348914866 | 📧 drajesh14082002@gmail.com</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section bg-light py-5" id="about">
+  <div class="container text-center">
+    <h2 class="mb-4">About Me</h2>
+    <p class="lead px-3 px-md-5">
+      I'm a frontend developer passionate about creating modern, responsive websites that deliver great user experiences. I specialize in HTML, CSS, JavaScript, and Core Java. I’ve developed and managed real projects like <a href="https://www.myeybo.in" target="_blank">MyEybo.in</a> and a personal portfolio site.
+    </p>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section class="skills-section py-5" id="skills">
+  <div class="container text-center">
+    <h2 class="mb-4">My Skills</h2>
+    <div class="d-flex flex-wrap justify-content-center">
+      <span class="skill-badge">HTML</span>
+      <span class="skill-badge">CSS</span>
+      <span class="skill-badge">JavaScript</span>
+      <span class="skill-badge">Bootstrap</span>
+      <span class="skill-badge">Core Java</span>
+      <span class="skill-badge">SQL</span>
+      <span class="skill-badge">Git & GitHub</span>
+      <span class="skill-badge">Responsive Design</span>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects-section bg-light py-5" id="projects">
+  <div class="container">
+    <h2 class="text-center mb-4">My Projects</h2>
+    <div class="text-center mb-3">
+      <button class="btn btn-outline-secondary mx-2 filter-btn" onclick="filterProjects('all')">All</button>
+      <button class="btn btn-outline-secondary mx-2 filter-btn" onclick="filterProjects('portfolio')">Portfolio</button>
+      <button class="btn btn-outline-secondary mx-2 filter-btn" onclick="filterProjects('clone')">Clones</button>
+      <button class="btn btn-outline-secondary mx-2 filter-btn" onclick="filterProjects('ecommerce')">E-commerce</button>
+    </div>
+    <div class="row g-4" id="projectCards"></div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section py-5" id="contact">
+  <div class="container">
+    <h2 class="text-center mb-4">Get in Touch</h2>
+    <form class="mx-auto" style="max-width:600px">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-section text-center bg-dark text-white py-3">
+  <div class="container">
+    <p class="mb-1">&copy; 2025 Rajesh Portfolio</p>
+    <div>
+      <a href="https://github.com/D-Rajesh14" target="_blank" class="text-white me-3"><i class="bi bi-github fs-5"></i></a>
+      <a href="https://www.linkedin.com/in/d-rajesh-1664822b0" target="_blank" class="text-white me-3"><i class="bi bi-linkedin fs-5"></i></a>
+      <a href="mailto:drajesh14082002@gmail.com" class="text-white me-3"><i class="bi bi-envelope fs-5"></i></a>
+      <a href="tel:+919348914866" class="text-white"><i class="bi bi-telephone fs-5"></i></a>
     </div>
   </div>
 </footer>
-  <!-- JavaScript Filter Logic -->
-  <script>
-    const projects = [
-      { title: 'Portfolio Website', image: 'img/portfolio.jpg', desc: 'Responsive portfolio using HTML/CSS/Bootstrap.', type: 'portfolio', link: 'index.html' },
-      { title: 'Amazon Clone', image: 'img/amazonlogo.jpg', desc: 'Amazon-style UI clone.', type: 'clone', link: 'Html/amazon.html' },
-      { title: 'Flipkart Template', image: 'img/flipkartlogo.jpg', desc: 'Flipkart-inspired responsive design.', type: 'clone', link: 'Html/flipkart.html' },
-      { title: 'MyEybo E-commerce', image: 'img/myeybo.in.jpeg', desc: 'Live e-commerce website built using Wix.', type: 'ecommerce', link: 'https://www.myeybo.in' }
-    ];
 
-    function filterProjects(category) {
-      const container = document.getElementById('projectCards');
-      container.innerHTML = '';
-      const filtered = category === 'all' ? projects : projects.filter(p => p.type === category);
-      filtered.forEach(project => {
-        container.innerHTML += `
-          <div class="col-md-4 col-sm-6">
-            <div class="card project-card">
-              <img src="${project.image}" class="card-img-top" alt="${project.title}">
-              <div class="card-body text-center">
-                <h5 class="card-title">${project.title}</h5>
-                <p class="card-text">${project.desc}</p>
-                <a href="${project.link}" class="btn btn-outline-primary" target="_blank">View</a>
-              </div>
+<!-- JS Script for Filtering -->
+<script>
+  const projects = [
+    { title: 'Portfolio Website', image: 'img/portfolio.jpg', desc: 'Responsive portfolio using HTML/CSS/Bootstrap.', type: 'portfolio', link: 'index.html' },
+    { title: 'Amazon Clone', image: 'img/amazonlogo.jpg', desc: 'Amazon-style UI clone.', type: 'clone', link: 'Html/amazon.html' },
+    { title: 'Flipkart Template', image: 'img/flipkartlogo.jpg', desc: 'Flipkart-inspired responsive design.', type: 'clone', link: 'Html/flipkart.html' },
+    { title: 'MyEybo E-commerce', image: 'img/myeybo.in.jpeg', desc: 'Live e-commerce website built using Wix.', type: 'ecommerce', link: 'https://www.myeybo.in' }
+  ];
+  function filterProjects(category) {
+    const container = document.getElementById('projectCards');
+    container.innerHTML = '';
+    const filtered = category === 'all' ? projects : projects.filter(p => p.type === category);
+    filtered.forEach(project => {
+      container.innerHTML += `
+        <div class="col-md-4 col-sm-6">
+          <div class="card h-100 project-card">
+            <img src="${project.image}" class="card-img-top" alt="${project.title}">
+            <div class="card-body text-center">
+              <h5 class="card-title">${project.title}</h5>
+              <p class="card-text">${project.desc}</p>
+              <a href="${project.link}" class="btn btn-outline-primary" target="_blank">View</a>
             </div>
-          </div>`;
-      });
-    }
-
-    window.onload = () => filterProjects('all');
-  </script>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+          </div>
+        </div>`;
+    });
+  }
+  window.onload = () => filterProjects('all');
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
