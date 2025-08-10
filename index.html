@@ -11,6 +11,17 @@
     .skill-badge { margin: 8px; padding: 8px 16px; border-radius: 20px; background: #f1f1f1; display: inline-block; }
     .project-card img { height: 200px; object-fit: cover; }
     .filter-btn { margin: 5px; border-radius: 25px; }
+    .about-box {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      background: #fff;
+      height: 100%;
+    }
+    .about-box i {
+      font-size: 2rem;
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -63,12 +74,44 @@
 </section>
 
 <!-- About Section -->
-<section class="about-section bg-light py-5" id="about">
-  <div class="container text-center">
-    <h2 class="mb-4">About Me</h2>
-    <p class="lead px-3 px-md-5">
-      I'm a frontend developer passionate about creating modern, responsive websites that deliver great user experiences. I specialize in HTML, CSS, JavaScript, and Core Java. I’ve developed and managed real projects like <a href="https://www.myeybo.in" target="_blank">MyEybo.in</a> and a personal portfolio site.
-    </p>
+<section class="about-section py-5 bg-light" id="about">
+  <div class="container">
+    <h2 class="text-center mb-5">About Me</h2>
+    <div class="row align-items-center">
+      <!-- Profile Image -->
+      <div class="col-md-4 text-center mb-4 mb-md-0">
+        <img src="img/developer.jpeg" alt="D Rajesh" class="img-fluid rounded shadow">
+      </div>
+      <!-- Info -->
+      <div class="col-md-8">
+        <div class="row mb-4">
+          <div class="col-sm-6 mb-3">
+            <div class="about-box text-center">
+              <i class="bi bi-briefcase mb-2"></i>
+              <h5 class="fw-bold">Experience</h5>
+              <p class="mb-0">2+ Years</p>
+              <small>Web Development & Project Management</small>
+            </div>
+          </div>
+          <div class="col-sm-6 mb-3">
+            <div class="about-box text-center">
+              <i class="bi bi-mortarboard mb-2"></i>
+              <h5 class="fw-bold">Education</h5>
+              <p class="mb-0">B.Tech (Electronics & Telecommunication)</p>
+              <small>Vignan Institute of Technology, 2025</small>
+            </div>
+          </div>
+        </div>
+        <p class="lead">
+          I am a passionate software developer with expertise in Core Java, SQL, HTML, CSS, JavaScript, and Bootstrap. 
+          I have hands-on experience in building responsive websites and managing real-world projects. 
+          My key works include <a href="https://www.myeybo.in" target="_blank">MyEybo.in</a>, 
+          a live customizable eyewear e-commerce platform, and my personal 
+          <a href="https://drajeshportfolio.online" target="_blank">portfolio website</a>. 
+          I thrive on learning, problem-solving, and delivering user-friendly digital solutions.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -107,23 +150,26 @@
 <section class="contact-section py-5" id="contact">
   <div class="container">
     <h2 class="text-center mb-4">Get in Touch</h2>
-    <form class="mx-auto" style="max-width:600px">
+    <form action="https://formspree.io/f/mrblrkdr" method="POST" class="mx-auto" style="max-width:600px">
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" required>
+        <input type="text" class="form-control" id="name" name="name" required>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" required>
+        <input type="email" class="form-control" id="email" name="_replyto" required>
       </div>
       <div class="mb-3">
         <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" id="message" rows="4" required></textarea>
+        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
       </div>
+      <!-- Optional: Redirect after submit -->
+      <input type="hidden" name="_redirect" value="thankyou.html">
       <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
   </div>
 </section>
+
 
 <!-- Footer -->
 <footer class="footer-section text-center bg-dark text-white py-3">
