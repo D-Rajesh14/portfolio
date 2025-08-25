@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List App</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body { background: #f8f9fa; font-family: 'Segoe UI', sans-serif; }
+.task-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; cursor: pointer; transition: 0.2s; }
+.task-item:hover { background: #e9ecef; }
+.task-text { flex-grow: 1; }
+.completed { text-decoration: line-through; color: green; opacity: 0.6; }
+.checkmark { margin-right: 8px; color: green; display: none; }
+.completed .checkmark { display: inline; }
+</style>
+</head>
+<body>
+
+<div class="container py-5">
+  <h2 class="text-center mb-4">To-Do List App</h2>
+
+  <div class="input-group mb-3">
+    <input type="text" id="taskInput" class="form-control" placeholder="Add a new task">
+    <button class="btn btn-primary" id="addTaskBtn">Add</button>
+  </div>
+
+  <div class="mb-3 text-center">
+    <button class="btn btn-outline-secondary mx-1 filter-btn" data-filter="all">All</button>
+    <button class="btn btn-outline-success mx-1 filter-btn" data-filter="completed">Completed</button>
+    <button class="btn btn-outline-warning mx-1 filter-btn" data-filter="pending">Pending</button>
+  </div>
+
+  <ul class="list-group" id="taskList"></ul>
+</div>
+
+<script>
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let currentFilter = 'all'; // Keep track of active filter
+
+const taskInput = document.getElementById('taskInput');
+const addTaskBtn = document.getElementById('addTaskBtn');
+const taskList = document.getElementById('taskList');
+const filterButtons = document.querySelectorAll('.filter-btn');
+
+// Add Task
+addTaskBtn.addEventListener('click', () => {
+  const text = taskInput.value.trim();
+  if(!text) return;
+  tasks.push({ id: Date.now(), text, completed: false });
+  taskInput.value = '';
+  saveAndRender();
+});
+
+// Render Tasks
+function renderTasks(filter = 'all') {
+  taskList.innerHTML = '';
+  let filtered = tasks;
+  if(filter === 'completed') filtered = tasks.filter(t => t.completed);
+  if(filter === 'pending') filtered = tasks.filter(t => !t.completed);
+
+  filtered.forEach(task => {
+    const li = document.createElement('li');
+    li.className = 'list-group-item task-item';
+
+    const span = document.createElement('span');
+    span.className = 'task-text';
+    if(task.completed) span.classList.add('completed');
+
+    const check = document.createElement('span');
+    check.className = 'checkmark';
+    check.textContent = '✅';
+    span.appendChild(check);
+    span.appendChild(document.createTextNode(task.text));
+
+    span.addEventListener('click', () => toggleComplete(task.id));
+
+    const delBtn = document.createElement('button');
+    delBtn.className = 'btn btn-sm btn-danger';
+    delBtn.textContent = 'Delete';
+    delBtn.addEventListener('click', () => deleteTask(task.id));
+
+    li.appendChild(span);
+    li.appendChild(delBtn);
+    taskList.appendChild(li);
+  });
+}
+
+// Save to localStorage and render using current filter
+function saveAndRender() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  renderTasks(currentFilter);
+}
+
+// Delete Task
+function deleteTask(id) {
+  tasks = tasks.filter(t => t.id !== id);
+  saveAndRender();
+}
+
+// Toggle Complete
+function toggleComplete(id) {
+  tasks = tasks.map(t => t.id === id ? {...t, completed: !t.completed} : t);
+  saveAndRender();
+}
+
+// Filter Buttons
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentFilter = btn.getAttribute('data-filter'); // update current filter
+    renderTasks(currentFilter);
+  });
+});
+
+// Initial render
+renderTasks();
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
